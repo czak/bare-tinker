@@ -7,7 +7,7 @@ boot.bin: boot.elf
 	$(CROSS_COMPILE)objcopy -O binary $< $@
 
 boot.elf: main.S
-	$(CROSS_COMPILE)gcc -Wl,--build-id=none -Ttext=0xff704000 -nostdlib $^ -o $@
+	$(CROSS_COMPILE)gcc -g -Wl,--build-id=none -Ttext=0xff704000 -nostdlib $^ -o $@
 
 .PHONY: burn_sdb clean
 
